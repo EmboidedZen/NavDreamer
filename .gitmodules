@@ -1,0 +1,9 @@
+[submodule "Pi3"]
+	path = Pi3
+	url = https://github.com/yyfz/Pi3.git
+	ignore = dirty
+
+[submodule "MoGe"]
+	path = MoGe
+	url = https://github.com/microsoft/MoGe.git
+	ignore = dirty

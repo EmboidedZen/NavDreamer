@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(ffprobe -v quiet -print_format json -show_streams Pi3/examples/gradio_examples/valley.mp4)",
-      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); s=[x for x in d['streams'] if x['codec_type']=='video'][0]; print\\(f\\\\\"Resolution: {s['width']}x{s['height']}, Frames: {s.get\\('nb_frames','unknown'\\)}, Duration: {s.get\\('duration','unknown'\\)}s\\\\\"\\)\")",
-      "Bash(du -sh outputs/man_walking_long/*/)"
-    ]
-  }
-}
