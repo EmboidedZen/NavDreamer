@@ -73,7 +73,7 @@ Pi3 输出归一化尺度，MoGe 输出真实米制深度。通过 `S = median(D
 - **Pi3/** — Pi3X inverse dynamics model (DINOv2 ViT-L encoder). `Pi3XVO` splits long sequences into overlapping chunks and aligns via Sim(3) Umeyama. HuggingFace: `yyfz233/Pi3X`.
 - **MoGe/** — MoGe-2 metric depth estimator (DINOv2 ViT-L encoder). HuggingFace: `Ruicheng/moge-2-vitl-normal`.
 
-Models load local checkpoints first (`Pi3/ckpts/model.safetensors`, `MoGe/ckpts/model.pt`), falling back to `from_pretrained()` which caches in `~/.cache/huggingface/hub/`.
+Model weights are centralized in `ckpts/` (`pi3x.safetensors`, `moge2.pt`), falling back to `from_pretrained()` which caches in `~/.cache/huggingface/hub/`.
 
 Submodules are imported at runtime via `sys.path` manipulation (lines 16-19 of waypoint_generator.py), not installed as packages.
 

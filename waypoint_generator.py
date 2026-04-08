@@ -71,12 +71,12 @@ class WaypointGenerator:
     def load_pi3(self, repo_id: str = "yyfz233/Pi3X"):
         """加载 Pi3X 模型和 VO 管线。
 
-        加载顺序: Pi3/ckpts/model.safetensors → from_pretrained (HuggingFace 缓存)
+        加载顺序: ckpts/pi3x.safetensors → from_pretrained (HuggingFace 缓存)
         """
         from pi3.models.pi3x import Pi3X
         from pi3.pipe.pi3x_vo import Pi3XVO
 
-        local_path = os.path.join(_project_root, "Pi3", "ckpts", "model.safetensors")
+        local_path = os.path.join(_project_root, "ckpts", "pi3x.safetensors")
         if os.path.exists(local_path):
             from safetensors.torch import load_file
             model = Pi3X().to(self.device).eval()
@@ -93,11 +93,11 @@ class WaypointGenerator:
     def load_moge(self, repo_id: str = "Ruicheng/moge-2-vitl-normal"):
         """加载 MoGe-2 度量深度模型。
 
-        加载顺序: MoGe/ckpts/model.pt → from_pretrained (HuggingFace 缓存)
+        加载顺序: ckpts/moge2.pt → from_pretrained (HuggingFace 缓存)
         """
         from moge.model.v2 import MoGeModel
 
-        local_path = os.path.join(_project_root, "MoGe", "ckpts", "model.pt")
+        local_path = os.path.join(_project_root, "ckpts", "moge2.pt")
         if os.path.exists(local_path):
             self.moge_model = MoGeModel.from_pretrained(local_path).to(self.device).eval()
             source = local_path
