@@ -44,9 +44,12 @@ uv venv .venv --python 3.10
 source .venv/bin/activate
 
 # 安装依赖
-pip install torch torchvision numpy opencv-python huggingface_hub safetensors
-cd Pi3 && pip install -r requirements.txt && cd ..
-cd MoGe && pip install -r requirements.txt && cd ..
+# ⚡️ 国内加速源（可选）
+export HF_ENDPOINT=https://hf-mirror.com                      # HuggingFace 镜像
+
+uv pip install torch torchvision numpy opencv-python huggingface_hub safetensors
+cd Pi3 && uv pip install -r requirements.txt && cd ..
+cd MoGe && uv pip install -r requirements.txt && cd ..
 ```
 
 **模型权重**：
@@ -60,12 +63,6 @@ ckpts/
 ```
 
 从 HuggingFace 下载后重命名放入即可。如本地不存在，代码会自动通过 `from_pretrained()` 下载并缓存到 `~/.cache/huggingface/hub/`。
-
-如需加速 HuggingFace 模型下载，可设置环境变量：
-
-```bash
-export HF_ENDPOINT=https://hf-mirror.com
-```
 
 ## 使用方法
 
